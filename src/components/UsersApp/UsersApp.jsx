@@ -4,7 +4,7 @@ import { UsersAppContext } from "../../context/UsersAppProvider"      // CONTEXT
 export const UsersApp = () => {
     const { usersApp } = useContext(UsersAppContext)                  // IMPORTACION DE DATO DE COMPONENTE
     const { isLoading } = useContext(UsersAppContext)
-    const { endPoint} = useContext(UsersAppContext)
+    const { endPoint } = useContext(UsersAppContext)
     const { handleFetch_UsersApp } = useContext(UsersAppContext)
 
     console.log(isLoading, usersApp)
@@ -15,8 +15,14 @@ export const UsersApp = () => {
             <ul>
                 {
                     isLoading
-                    ? <p>Cargando...</p>
-                    : usersApp.map( user => <li key={user.id}>{endPoint == 'posts' ? user.title : user.name}</li>)
+                        ? <p>Cargando...</p>
+                        : usersApp.map(user => <li key={user.id}>{
+                            user.name
+                                ? user.name
+                                : user.title
+                                    ? user.title
+                                    : "Información no disponible"
+                        }</li>)
                 }
             </ul>
         </>

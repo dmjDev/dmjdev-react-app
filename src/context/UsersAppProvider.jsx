@@ -7,7 +7,7 @@ export const UsersAppProvider = (props) => {
     const { usersApp, isLoading } = UserAppHelper(endPoint)
 
     const handleFetch_UsersApp = () => {
-        const endPointArray = ["users", "comments", "posts"]
+        const endPointArray = ["users", "comments", "posts", "todos", "albums", "photos"]
         let next = (endPointArray.indexOf(endPoint) + 1 == endPointArray.length) ? 0 : endPointArray.indexOf(endPoint) + 1
         setEndPoint(endPointArray[next])
     }
