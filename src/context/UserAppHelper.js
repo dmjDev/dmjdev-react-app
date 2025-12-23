@@ -12,6 +12,7 @@ export const UserAppHelper = (endPoint) => {
     }
 
     useEffect(() => {
+        setUsersApp([])
         getData()
     }, [endPoint])
 
